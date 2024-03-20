@@ -46,8 +46,8 @@ const fetchPokemon  = async () =>{
 }
 searchBtn.addEventListener("click",fetchPokemon);
 
-searchInput.addEventListener("keyDown",(e)=>{
-  if(e.key==="enter"){
-    fetchPokemon;
+searchInput.addEventListener("keypress",(event)=>{
+  if(event.key==="Enter"){
+    fetchPokemon();
   }
 })
