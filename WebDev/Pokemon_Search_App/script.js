@@ -19,7 +19,7 @@ const fetchPokemon  = async () =>{
   
 
     const nameOrID = searchInput.value.toLowerCase();
-    const url= `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${nameOrID}`;
+    const url= `https://pokeapi.co/api/v2/pokemon/${nameOrID}`;
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -39,6 +39,7 @@ const fetchPokemon  = async () =>{
     speed.textContent=`${data.stats[5].base_stat}`;
     })
     .catch((err) => {
+      console.error(err);
       alert("Pokemon NotFound")
     })
 
@@ -46,7 +47,7 @@ const fetchPokemon  = async () =>{
 searchBtn.addEventListener("click",fetchPokemon);
 
 searchInput.addEventListener("keyDown",(e)=>{
-  if(e.key==="Enter"){
+  if(e.key==="enter"){
     fetchPokemon;
   }
 })
